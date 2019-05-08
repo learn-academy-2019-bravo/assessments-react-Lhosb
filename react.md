@@ -4,7 +4,6 @@ Try your best to answer each question on your own before looking up the answer o
 
 #### 1. Here is a list of pros and cons to using the React library to build your application -- but some of them are false. Remove the false statements from the list:
 
-- React was created to be simple, so that even people with minimal code experience could use it and create Single Page Applications (SPAs) (MAYBE????)
 - React is a modern, efficient answer to complex UI applications
 
 - React is a flexible library that plays the role of V in an MVC framework
@@ -33,38 +32,40 @@ Yarn is a package manager. The yarn add ... will add the package  specified by t
 #### 5. There are three mistakes in this code that would cause it to break our application. Find the mistakes and fix them:
 
 
-    import React, { Component } from 'react';
-                  //mistake 1
-    class Recipes extends Component {
-      constructor(props){
-        super(props)
-        this.state = {
-          recipes:
-            {name: 'Meatballs'},
-            {name: 'Mac & Cheese'}
 
-        }
-      }
+import React, { Component } from 'react';
 
-      render() {
-        //miskate 2
-        let { recipes } = this.state
-        return (
-
-          let recipesNames = recipes.map(function(recipe){
-            return(
-              <li key={recipe.name}>{recipe.name}</li>
-            )
-          })
-
-          <ul>
-            {recipesNames}
-          </ul>
-        );
-      }
+              //mistake 1
+class Recipes extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      //mistake 2
+      recipes: [
+        {name: 'Meatballs'},
+        {name: 'Mac & Cheese'}
+      ]
     }
+  }
 
-    export default Recipes;
+  render() {
+    //miskate 3
+    let { recipes } = this.state
+    let recipesNames = recipes.map(function(recipe){
+      return(
+        <li key={recipe.name}>{recipe.name}</li>
+      )
+    })
+
+    return (
+
+
+      <ul>
+        {recipesNames}
+      </ul>
+    );
+  }
+}
 
 #### 6. Name three html input types. (NOTE: text is the default type - so it doesn't count in this case)
 
